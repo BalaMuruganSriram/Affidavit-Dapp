@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Legal Name Change Affidavit - Office Panel</title>
+    <link href="style2.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <center>
+        <h1>Legal Name Change - Office Panel</h1>
+    </center>
+    <button id="connectBtn" class="connect scaling">Connect <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png"
+            alt="MetaMask Logo"></button><br>
+
+    <p>Affidavits registered so far :
+        <span id="latestafnodisplay" class="highlight"></span>
+    </p>
+    <button id="getlatestafnobtn"  class="scaling">Refresh</button>
+    <h2>Approve</h2>
+    <div id="approvalarea">
+        <label for="approver">Approver:</label>
+        <select id="approver">
+            <option>"ABC"</option>
+            <option>"XYZ"</option>
+            <option>"PQR"</option>
+        </select>
+        <input id="affnoipforview" type="number" placeholder="136548" />
+        <button id="viewbtn"  class="scaling">View</button>
+        <div id="approvaldisplay"></div>
+    </div>
+    <h2>Fetch Affidavit History by Individual:</h2>
+    <div id="affhisarea">
+        <label for="idnoinputforfetch">Enter ID Number: </label> 
+        <input id="idnoinputforfetch" type="number" placeholder="82546613">
+        <p id="fetchhistory"></p>
+        <button id="fetchhistorydisplaybtn"  class="scaling">Fetch all Affidavits IDs</button>
+        <br>
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close" id="closePopup">&times;</span>
+                <p id="fetchdisplay"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="./app2.js"></script>
+</body>
+
+</html>
