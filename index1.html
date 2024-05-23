@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Legal Name Change Affidavit - Public Panel</title>
+    <link href="./style1.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Legal Name Change </h1>
+        <button id="connectBtn" class="connect scaling">Connect <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png"
+                alt="MetaMask Logo"></button>
+        <h2>New Affidavit Registeration:</h2>
+        <input type="text" id="oldnameinput" placeholder="Enter Old Name" oninput="changer()">
+        <input type="text" id="newnameinput" placeholder="Enter New Name" oninput="changer()">
+        <input type="number" id="idnoinput" placeholder="Enter ID No" oninput="changer()">
+        <input type="url" id="doclinkinput" placeholder="Paste the Document URL" oninput="changer()"/>
+        <button id="registerbtn" class="hidden scaling">Register Affidavit</button>
+        <p id="affnodisplay"></p>
+
+        <h2>Fetch Affidavit by Number:</h2>
+        <input type="number" id="afnoinputforfetch" placeholder="Enter Affidavit Number" oninput="changer()">
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close" id="closePopup">&times;</span>
+                <p id="fetchdisplay"></p>
+            </div>
+        </div>
+
+        <button id="fetchdisplaybtn" class="hidden scaling">Fetch</button>
+
+        <h2>Fetch Affidavit History by Individual:</h2>
+        <input type="number" id="idnoinputforfetch" placeholder="Enter ID Number" oninput="changer()">
+
+        <p id="fetchhistory"></p>
+        <button id="fetchhistorydisplaybtn" class="hidden scaling">Fetch all Affidavits IDs</button>
+        <h2>Verify Affidavit Signature</h2>
+        <input type="text" id="signatureforverify" placeholder="Enter Signature"><br>
+        <input type="text" id="catdata" placeholder="Enter Concatenated Datas">
+        <button id="verifybtn">Verify</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="./app1.js"></script>
+    <script>
+        const changer = () => {
+
+            const oldName = document.getElementById('oldnameinput').value;
+            const newName = document.getElementById('newnameinput').value;
+            const doclinkinput = document.getElementById('doclinkinput').value;
+            const idNo = parseInt(document.getElementById('idnoinput').value);
+            const registerBtn = document.getElementById('registerbtn');
+
+            const afnoinputforfetch = parseInt(document.getElementById('afnoinputforfetch').value);
+
+            const fetchdisplaybtn = document.getElementById('fetchdisplaybtn');
+            const idnoinputforfetch = parseInt(document.getElementById('idnoinputforfetch').value);
+            const fetchhistorydisplaybtn = document.getElementById('fetchhistorydisplaybtn');
+
+
+            if (oldName && newName && !isNaN(idNo) && doclinkinput.trim()!="") {
+                registerBtn.classList.remove('hidden');
+            } else {
+                registerBtn.classList.add('hidden');
+            }
+            if (!isNaN(afnoinputforfetch))
+                fetchdisplaybtn.classList.remove('hidden');
+            else
+                fetchdisplaybtn.classList.add('hidden');
+            if (!isNaN(idnoinputforfetch))
+                fetchhistorydisplaybtn.classList.remove('hidden');
+            else
+                fetchhistorydisplaybtn.classList.add('hidden');
+        };
+    </script>
+</body>
+
+</html>
